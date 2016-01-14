@@ -1,0 +1,32 @@
+--- src/build.xml.sav	2008-05-28 11:45:28.000000000 +0300
++++ src/build.xml	2010-01-08 12:22:48.820864187 +0200
+@@ -69,6 +69,14 @@
+            classpath=".:${junit.jar}"
+            debug="on" />
+   </target>
++	
++  <target name="compile-bootstrap"
++	          description="compile all classes during a bootstrap">
++	<javac srcdir="." 
++	       destdir="../lib" 
++	       classpath="."
++	       debug="on" />
++  </target>
+ 
+   <target name="jflex" depends="declare" description="generate scanner">
+     <jflex file="JFlex/LexScan.flex" skeleton="skeleton.nested"/>
+@@ -89,6 +97,14 @@
+     	 jarfile="../lib/JFlex.jar" 
+     	 manifest="manifest"/>
+   </target>
++ 
++  <target name="jar-bootstrap" depends="compile-bootstrap,copy" description="make JFlex.jar">
++    <jar basedir="../lib" 
++         includes="JFlex/**,java_cup/**,skeleton" 
++         jarfile="../lib/JFlex.jar" 
++         manifest="manifest"/>
++  </target>
++
+ 
+   <target name="libclean" description="remove compiled classes">
+     <delete dir="../lib/JFlex" />
