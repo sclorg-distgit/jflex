@@ -2,12 +2,12 @@
 %{?scl:%scl_package %{pkg_name}}
 %{?maven_find_provides_and_requires}
 
-%bcond_without bootstrap
+%bcond_with bootstrap
 
 Summary:        Fast Scanner Generator
 Name:           %{?scl_prefix}%{pkg_name}
 Version:        1.4.3
-Release:        20.12%{?dist}
+Release:        20.13%{?dist}
 Epoch:          0
 License:        GPL+
 URL:            http://jflex.de/
@@ -49,7 +49,7 @@ This package provides %{summary}.
 
 %prep
 %setup -q -n %{pkg_name}-%{version}
-%{?scl:scl enable maven30 %{scl} - <<"EOF"}
+%{?scl:scl enable %{scl} - <<"EOF"}
 set -e -x
 %patch0 -b .sav
 %patch1 -p1 -b .sav
@@ -59,7 +59,7 @@ set -e -x
 %{?scl:EOF}
 
 %build
-%{?scl:scl enable maven30 %{scl} - <<"EOF"}
+%{?scl:scl enable %{scl} - <<"EOF"}
 set -e -x
 
 pushd src
@@ -81,7 +81,7 @@ popd
 %{?scl:EOF}
 
 %install
-%{?scl:scl enable maven30 %{scl} - <<"EOF"}
+%{?scl:scl enable %{scl} - <<"EOF"}
 set -e -x
 install -d -m 755 %{buildroot}%{_javadir}
 install -d -m 755 %{buildroot}%{_mavenpomdir}
@@ -118,6 +118,9 @@ install -p -m 644 %{SOURCE4} %{buildroot}%{_mandir}/man1
 
 
 %changelog
+* Mon Jan 11 2016 Michal Srb <msrb@redhat.com> - 0:1.4.3-20.13
+- maven33 rebuild #2
+
 * Sat Jan 09 2016 Michal Srb <msrb@redhat.com> - 0:1.4.3-20.12
 - maven33 rebuild
 
