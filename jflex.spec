@@ -7,7 +7,7 @@
 Summary:        Fast Scanner Generator
 Name:           %{?scl_prefix}%{pkg_name}
 Version:        1.4.3
-Release:        20.13%{?dist}
+Release:        20.14%{?dist}
 Epoch:          0
 License:        GPL+
 URL:            http://jflex.de/
@@ -118,6 +118,9 @@ install -p -m 644 %{SOURCE4} %{buildroot}%{_mandir}/man1
 
 
 %changelog
+* Mon Feb 08 2016 Michal Srb <msrb@redhat.com> - 0:1.4.3-20.14
+- Fix BR on maven-local & co.
+
 * Mon Jan 11 2016 Michal Srb <msrb@redhat.com> - 0:1.4.3-20.13
 - maven33 rebuild #2
 
