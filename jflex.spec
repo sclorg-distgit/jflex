@@ -7,7 +7,7 @@
 Summary:        Fast Scanner Generator
 Name:           %{?scl_prefix}jflex
 Version:        1.6.1
-Release:        8.1%{?dist}
+Release:        8.2%{?dist}
 License:        BSD
 URL:            http://jflex.de/
 BuildArch:      noarch
@@ -115,6 +115,9 @@ install -p -m 644 lib/jflex-mode.elc %{buildroot}%{_emacs_sitelispdir}/%{pkg_nam
 %doc %{_javadocdir}/%{pkg_name}
 
 %changelog
+* Thu Jun 22 2017 Michael Simacek <msimacek@redhat.com> - 1.6.1-8.2
+- Mass rebuild 2017-06-22
+
 * Wed Jun 21 2017 Java Maintainers <java-maint@redhat.com> - 1.6.1-8.1
 - Automated package import and SCL-ization
 
